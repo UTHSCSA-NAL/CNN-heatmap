@@ -63,10 +63,6 @@ def inference(pth, dataset, which_model, device, k):
         np.save(predict_pth, all_predict) 
         np.save(target_pth, all_target) 
 
-
-
-
-
 def get_acc(all_target,all_prediction):
     outputs = []
 

@@ -28,6 +28,7 @@ parser.add_argument('--wd', default=1e-4, type=float, help='weight decay (defaul
 parser.add_argument('--epochs', type=int, default=200,help='number of total epochs to run (default: 200)')
 parser.add_argument('--patience', default=10, type=int, help='patience used for early stop rate (default: 10)')
 parser.add_argument('--delta', default=0, type=float, help='delta used for early stop rate (default: 0)')
+args = parser.parse_args()
 
 dataset_ori  = DatasetFromNii_aug(csv_path=args.path, minmax=True)
 out_pth = args.outpath

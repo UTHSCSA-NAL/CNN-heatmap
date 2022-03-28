@@ -22,6 +22,7 @@ parser.add_argument('device', type=int, help='gpu device')
 parser.add_argument('--fold', type=int, default=5, help='fold for CV (default: 5)')
 parser.add_argument('--model', type=str, help='name of model')
 parser.add_argument('--batch', default=5, type=int, help='batch size (default: 5)')
+args = parser.parse_args()
 
 dataset_ori  = DatasetFromNii_aug(csv_path=args.path, minmax=True)
 

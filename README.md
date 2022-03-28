@@ -14,6 +14,9 @@ date: March 28, 2022
 
 # Usage
 The usage of the python scripts can be printed by executed them with the -h option.
+```
+python3 train_cv.py -h
+```
 
 # Example
 Example of training model with five fold cross validation and early-stoping: 

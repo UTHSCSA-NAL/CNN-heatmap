@@ -17,10 +17,10 @@ import argparse
 torch.cuda.empty_cache()
 
 parser = argparse.ArgumentParser(description='Training')
-parser.add_argument('--path', type=str, help='path to csv file of dataset')
+parser.add_argument('--path', type=str, help='path to csv file of dataset, csv file contains two columns, first is the path to each nifiti file and second is the label (0 or 1).')
 parser.add_argument('--outpath', type=str, help='path to save model')
 parser.add_argument('--device', type=int, help='gpu device')
-parser.add_argument('--model', type=str, help='name of model')
+parser.add_argument('--model', type=str, help='name of model, example: modelA24')
 parser.add_argument('--batch', default=5, type=int, help='batch size (default: 5)')
 parser.add_argument('--fold', type=int, default=5, help='fold for CV (default: 5)')
 parser.add_argument('--lr', default=1e-4, type=float, help='learning rate (default: 1e-4)')

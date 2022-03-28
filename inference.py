@@ -64,7 +64,7 @@ def inference(pth, dataset, which_model, device, k):
         np.save(target_pth, all_target) 
 
 
-inference(args.modelpath, dataset_ori, args.model, args.device, args.fold)
+
 
 
 def get_acc(all_target,all_prediction):
@@ -110,11 +110,14 @@ def all_fold(pth):
     av_acc = np.average(acc['acc'])
     return acc, av_acc
 
-#print("################ done #####################")
-acc, av_acc = all_fold(args.modelpath)
-av_acc =np.round(av_acc*100,2) 
-print(f"average ACC: {av_acc}")
-print(acc)
-#print(np.array(acc['acc']).std())
-#print("TP, TN, FP, FN", sum(acc['TP']), sum(acc['TN']), sum(acc['FP']), sum(acc['FN']))
+
+if __name__ == "__main__":
+    inference(args.modelpath, dataset_ori, args.model, args.device, args.fold)
+    
+    #print("################ done inference #####################")
+    acc, av_acc = all_fold(args.modelpath)
+    av_acc =np.round(av_acc*100,2) 
+    print(f"average ACC: {av_acc}")
+    print(acc)
+
 

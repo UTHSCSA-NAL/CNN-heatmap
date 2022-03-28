@@ -20,25 +20,22 @@ def integrated_gradients(input_, model, target_class, baseline_name, steps, cuda
 		baseline = torch.rand(1, 1, 193, 229, 193)                 # [0, 1]   
 	elif baseline_name == "g":
 		baseline = inputs + torch.randn(1, 1, 193, 229, 193)       # gaussian
-	 
-	interpolated_inputs = [baseline + (i / steps) *(input_ - baseline) for i in range(0, steps + 1)] 
-   
-	gradients = []
-	for img in interpolated_inputs:
-		#img = torch.Size([1, 193, 229, 193])
+		
+	i_images = [ baseline + (i / steps) *(input_ - baseline) for i in range(0, steps + 1)] 
+ 
+	all_grad = []
+	for img in i_images:
 		img = torch.tensor(img, dtype=torch.float32, device=device, requires_grad=True)
 		outputs = model(img)  
-		
 		model.zero_grad()
 		outputs[:,target_class.item()].backward()
 		gradient = img.grad.detach().cpu().numpy()[0]
-		gradients.append(gradient)
+		all_grad.append(gradient)
 		
-	gradients = np.array(gradients)
-	avg_grads = np.average(gradients[:-1], axis=0)   # average image gradient
-
-	diff_input = (input_ - baseline).detach().squeeze(0).cpu().numpy()
-	integrated_grad = diff_input * avg_grads
+	grad = np.array(all_grad)
+	av_grad = np.average(grad[:-1], axis=0)   # average image gradient
+	diff = (input_ - baseline).detach().squeeze(0).cpu().numpy()
+	i_grads = diff * av_grad
 	
-	return integrated_grad
+	return i_grads
 

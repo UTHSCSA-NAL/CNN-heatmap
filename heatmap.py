@@ -28,7 +28,7 @@ parser.add_argument('--outpath', type=str, help='path of heatmap output')
 parser.add_argument('--device', type=int, help='gpu device')
 parser.add_argument('--fold', type=int, default=5, help='fold for CV (default: 5)')
 parser.add_argument('--batch', default=1, type=int, help=' batch size for heatmap (default: 1)')
-
+args = parser.parse_args()
 
 ## for GGC only
 if args.model.startswith('modelB'):

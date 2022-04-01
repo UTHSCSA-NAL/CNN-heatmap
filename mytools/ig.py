@@ -14,22 +14,24 @@ import sys
 torch.cuda.empty_cache() 
 
 def integrated_gradients(input_, model, target_class, baseline_name, steps, cuda=True, device):
+	input_size = input_.shape
 	
-	if baseline_name == "z":
-		baseline = 0 * input_
-	elif baseline_name == "u":
-		baseline = torch.rand(1, 1, 193, 229, 193)                 # [0, 1]   
-	elif baseline_name == "g":
-		baseline = inputs + torch.randn(1, 1, 193, 229, 193)       # gaussian
+	if baseline_name == "z":                                           # zero baseline
+		baseline = np.zeros(input_size)
+	elif baseline_name == "u":                                         # uniform noise baseline
+		baseline = torch.rand(input_size)                    
+	elif baseline_name == "g":                                         # add gaussian noise baseline
+		baseline = input_ + torch.randn(input_size)       
 		
 	i_images = [ baseline + (i / steps) *(input_ - baseline) for i in range(0, steps + 1)] 
  
 	all_grad = []
 	for img in i_images:
 		img = torch.tensor(img, dtype=torch.float32, device=device, requires_grad=True)
-		outputs = model(img)  
+		out = model(img)  
 		model.zero_grad()
-		outputs[:,target_class.item()].backward()
+		target_out = out[:, target_class.item()]
+		target_out.backward()
 		gradient = img.grad.detach().cpu().numpy()[0]
 		all_grad.append(gradient)
 		

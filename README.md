@@ -26,7 +26,10 @@ python3 train_cv.py --path ./data.csv --outpath ./output/ --device 0 --model mod
 
 Example of generating heatmaps from trained model: 
 ```
-python3 heatmap.py --path ./data.csv --modelpath ./output/ --model modelA24 --method LRP --outpath ./LRP/ --device 0 
-python3 heatmap.py --path ./data.csv --modelpath ./output/ --model modelA24 --method IG --outpath ./LRP/ --device 0 
-python3 heatmap.py --path ./data.csv --modelpath ./output/ --model modelA24 --method GGC --outpath ./LRP/ --device 0 
+## generate LRP heatmap
+python3 heatmap.py --path ./data.csv --modelpath ~/path_to_model/ --model modelA24 --method LRP --outpath ~/path_to_save_heatmap/ --device 0 
+## generate IG heatmap
+python3 heatmap.py --path ./data.csv --modelpath ~/path_to_model/ --model modelA24 --method IG --outpath ~/path_to_save_heatmap/ --device 0 
+## generate GGC heatmap
+python3 heatmap.py --path ./data.csv --modelpath ~/path_to_model/ --model modelA24 --method GGC --outpath ~/path_to_save_heatmap/ --device 0 
 ```

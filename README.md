@@ -21,7 +21,7 @@ python3 train_cv.py -h
 # Example
 Example of training model with five fold cross validation and early-stoping: 
 ```
-python3 train_cv.py --path ./data.csv --outpath ./output/ --device 0 --model modelA24
+python3 train_cv.py --path ./data.csv --outpath ~/path_to_save_model/ --device 0 --model modelA24
 ```
 
 Example of generating heatmaps from trained model: 

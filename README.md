@@ -1,16 +1,16 @@
-# CNN Heatmaps Can Capture Brain Alterations Induced by Alzheimer's Disease
+# Deep neural network heatmaps capture Alzheimer's disease patterns reported in a large meta-analysis of neuroimaging studies
 This code implements the training of 3D convolutional neural networks and generating heatmaps, as described in the paper CNN Heatmaps Can Capture Brain Alterations Induced by Alzheimer's Disease.
 
 **Di Wang, Nicolas Honnorat, Mohamad Habes**
 
 **Abstract:**
-Deep networks are reaching excellent performances for clinical tasks such as the generation of individual diagnosis and prognosis from MRI images. But the complexity of these models make them difficult to interpret. Several heatmaps methods were developed to address this issue by highlighting the images features that are used by the deep networks to support their decision, but in many fields of research, the lack of ground-truth limited the possibilities of estimating the quality of the heatmaps generated. In this work, we explain how this issue can be address, in the neuroimaging field, by comparing heatmaps with brain maps derived from meta-analysis studies. More specifically, we compare a meta-analysis map derived by combining 79 voxel-based morphometry studies with the heatmaps generated, for a CNN reaching a good accuracy during the classification of ADNI participant with and without Alzheimer's Disease, by three prominent methods: layer-wise relevance propagation (LRP), integrated gradients (IG) and guided grad-CAM (GGC). Our results indicate that the three heatmap methods capture brain regions overlapping the meta-analysis map, and more relevant than maps derived from Support Vector Machines. GGC produced the best overlaps.
+Deep neural networks currently provide the most advanced and accurate machine learning models to distinguish between structural MRI scans of subjects with Alzheimer's disease and healthy controls. Unfortunately, the subtle brain alterations captured by these models are difficult to interpret because of the complexity of these multi-layer and non-linear models. Several heatmap methods have been proposed to address this issue and analyze the imaging patterns extracted from the deep neural networks, but no quantitative comparison between these methods has been carried out so far. In this work, we explore these questions by deriving heatmaps from Convolutional Neural Networks (CNN) trained using T1 MRI scans of the ADNI data set and by comparing these heatmaps with brain maps corresponding to Support Vector Machines (SVM) coefficients. Three prominent heatmap methods are studied: Layer-wise Relevance Propagation (LRP), Integrated Gradients (IG), and Guided Grad-CAM (GGC). Contrary to prior studies where the quality of heatmaps was visually or qualitatively assessed, we obtained precise quantitative measures by computing overlap with a ground-truth map from a large meta-analysis that combined 77 voxel-based morphometry (VBM) studies independently from ADNI. Our results indicate that all three heatmap methods were able to capture brain regions covering the meta-analysis map and achieved better results than SVM coefficients. Among them, IG produced the heatmaps with the best overlap with the independent meta-analysis.
 
 Please cite the last version of the article when it will be published.
 
 version 1.0.0
 author: Di Wang
-date: March 28, 2022
+date: July 26, 2022
 
 # Usage
 The usage of the python scripts can be printed by executed them with the -h option.

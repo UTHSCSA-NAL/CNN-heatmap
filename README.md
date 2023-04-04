@@ -10,7 +10,7 @@ Please cite the last version of the article when it will be published.
 
 version 1.0.0
 author: Di Wang
-date: July 26, 2022
+date: April 4, 2023
 
 # Usage
 The usage of the python scripts can be printed by executed them with the -h option.

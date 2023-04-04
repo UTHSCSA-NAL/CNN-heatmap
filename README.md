@@ -20,9 +20,7 @@ author = {Di Wang and Nicolas Honnorat and Peter T. Fox and Kerstin Ritter and S
 
 Wang, D., Honnorat, N., Fox, P.T., Ritter, K., Eickhoff, S.B., Seshadri, S., Habes, M. and Alzheimer’s Disease Neuroimaging Initiative, 2023. Deep neural network heatmaps capture Alzheimer’s disease patterns reported in a large meta-analysis of neuroimaging studies. NeuroImage, 269, p.119929.
 
-version 1.0.0
-author: Di Wang
-date: April 4, 2023
+
 
 # Usage
 The usage of the python scripts can be printed by executed them with the -h option.
